@@ -12,39 +12,36 @@ Status (2026-11-02): **data collection stage.** No photos or training code yet.
 
 ## Data collection protocol
 
-### Materials
+**Print or open [`writing-sheets.pdf`](writing-sheets.pdf)**: a cover page of instructions, then one page per sheet (P01-P20) showing exactly what to write. It is generated from `ground-truth/pages.txt` by `scripts/make_writing_pdf.py` (`uv run --with reportlab python scripts/make_writing_pdf.py`); regenerate it after editing the text.
 
-| Item | Choice | Why |
-|---|---|---|
-| Paper | **A4, plain unruled white** printer paper | Matches how you write day to day; plain background is easiest to segment |
-| Line guide | Optional: a sheet of bold-ruled paper (or a printed ~12 mm line guide) *under* the page | Keeps lines straight and separated without the lines appearing in the photo |
-| Pen | **Black** ballpoint or gel, the one you normally use | High contrast; match your real-world pen |
-| Pages | **20 pages, 12 lines each = 240 lines** (`ground-truth/pages.txt`) | MVP. Phase 2 (optional): write the same 20 pages again on a different day/pen for ~480 lines |
+### Paper
+
+- **Any size from A6 to A4; A5 is ideal.** Mixing sizes is good: the model should cope with whatever paper is to hand.
+- **Ruled vs unruled matters, so do both.** Rule lines are visual noise that the model has to learn to ignore, and real notes are written on both kinds. Round 1: odd sheets unruled, even sheets ruled (shown on each PDF page). Round 2 (optional, ~480 lines total): the same text on the other paper type, ideally another day and another pen.
+- Ruled: rule gap of 8 mm or more, write on every line; narrower, skip a line. Unruled: leave about one line height between lines. Avoid graph paper.
+- Small paper: turn it landscape if a line won't fit across, and continue onto extra sheets (`P07a`, `P07b`). Lines are never split or merged; order is preserved, so segmentation can still match lines to text.
+
+### Pen
+
+Black (dark blue OK) **ballpoint 0.7-1.0 mm or gel 0.5-0.7 mm**, ideally your everyday pen. Avoid fine 0.3-0.4 mm tips (faint in phone photos), pencil, and bleeding felt-tips.
 
 ### Writing rules
 
-1. Write the page code (`P01` … `P20`) small in the **top-right corner**. It identifies the photo; it is not a text line.
-2. Copy each line of `ground-truth/pages.txt` as **one handwritten line**. Do not wrap a line onto two, and do not merge two lines into one.
-3. Leave a **clear gap between lines** (roughly one line height). Touching lines are what makes automatic cropping fail.
-4. Copy the text **exactly**: same capitals, punctuation, numbers. Line breaks in the file are deliberate.
-5. Write **naturally**, at your normal speed and size. Neat "exam" handwriting trains a model that can't read your real notes.
-6. **Mistakes:** don't correct in place. Either cross the whole line out and rewrite it on the next line, or note the page and line number (e.g. `P07 L4`) in `ground-truth/corrections.txt` with what you actually wrote. Easiest is to just keep going and tell the agent which lines to fix.
-7. Leave ~2 cm margins on all sides.
+1. Sheet code in the top-right corner (`P07`; round 2 `P07-2`; split sheets `P07a`, `P07-2b`). Not a text line.
+2. One printed line = one handwritten line. Copy exactly; skip the grey line numbers.
+3. Normal speed and style, not your neatest.
+4. Mistakes: keep going and report them as page + line + what was written; they go in `ground-truth/corrections.txt`.
 
 ### Photographing
 
-- One photo per page, **phone held flat above the page**, whole sheet in frame, no fingers on the paper.
-- Even daylight or overhead light, **no flash**, no strong shadow from the phone.
-- Dark, plain background behind the sheet (helps automatic page detection).
-- Highest resolution, no filters. A scanner app (Google Drive scan, Adobe Scan) is fine too; save as JPG, not PDF if possible.
-- File name doesn't matter; the page code in the corner identifies it. Drop them in the Drive `fe/` folder or `photos/raw/`.
+One photo per sheet, phone flat above it, whole sheet in frame, no flash, dark plain background. Upload to the Drive `fe/` folder (or `photos/raw/`); the corner code identifies each photo.
 
 ## Pipeline (to build once photos exist)
 
 1. `photos/raw/` → deskew + crop page (OpenCV).
-2. Line segmentation: horizontal projection profile, constrained to the known count of 12 lines per page. Check visually; fall back to a VLM pass for messy pages.
+2. Line segmentation: horizontal projection profile, constrained to the 12 known lines per page (summed across split sheets). Ruled sheets need rule-line removal first. Check visually; fall back to a VLM pass for messy pages.
 3. Pair each crop with its line from `ground-truth/pages.txt` → `data/lines/*.png` + `data/labels.jsonl`.
-4. Split by page (e.g. 16 train / 2 val / 2 test pages) so test lines are never seen in training.
+4. Split by page (e.g. 16 train / 2 val / 2 test pages, with both rounds of a test page held out) so test lines are never seen in training.
 5. Fine-tune TrOCR (Hugging Face `VisionEncoderDecoderModel`), a few epochs on one consumer GPU or a rented one. Report **CER** (character error rate) on the test pages before and after fine-tuning.
 6. Optional: push the model to Hugging Face.
 
@@ -53,6 +50,8 @@ Python environments use `uv`.
 ## Layout
 
 ```
-ground-truth/pages.txt   text to copy, one line per handwritten line
+ground-truth/pages.txt   text to copy, one line per handwritten line (source of truth)
+writing-sheets.pdf       printable sheets generated from pages.txt
+scripts/                 make_writing_pdf.py
 photos/raw/              page photos (as received)
 ```
