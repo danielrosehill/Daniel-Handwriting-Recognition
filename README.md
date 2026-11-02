@@ -12,7 +12,7 @@ Status (2026-11-02): **data collection stage.** No photos or training code yet.
 
 ## Data collection protocol
 
-**Print or open [`writing-sheets.pdf`](writing-sheets.pdf)**: a cover page of instructions, then one page per sheet (P01-P20) showing exactly what to write. It is generated from `ground-truth/pages.txt` by `scripts/make_writing_pdf.py` (`uv run --with reportlab python scripts/make_writing_pdf.py`); regenerate it after editing the text.
+**Print or open [`writing-sheets.pdf`](writing-sheets.pdf)**: a cover page of instructions, then one page per sheet (P01-P20) showing exactly what to write. It is built with Typst from `writing-sheets.typ`, which reads `ground-truth/pages.txt` directly: `typst compile writing-sheets.typ` (Typst 0.14.2). Rebuild after editing the text.
 
 ### Paper
 
@@ -27,7 +27,7 @@ Black (dark blue OK) **ballpoint 0.7-1.0 mm or gel 0.5-0.7 mm**, ideally your ev
 
 ### Writing rules
 
-1. Sheet code in the top-right corner (`P07`; round 2 `P07-2`; split sheets `P07a`, `P07-2b`). Not a text line.
+1. Sheet code in the top-right corner **with a circle drawn around it** (`P07`; round 2 `P07-2`; split sheets `P07a`, `P07-2b`). The circle marks it as a label: the pipeline reads it to identify the sheet, then crops it out so it never enters the training lines.
 2. One printed line = one handwritten line. Copy exactly; skip the grey line numbers.
 3. Normal speed and style, not your neatest.
 4. Mistakes: keep going and report them as page + line + what was written; they go in `ground-truth/corrections.txt`.
@@ -38,7 +38,7 @@ One photo per sheet, phone flat above it, whole sheet in frame, no flash, dark p
 
 ## Pipeline (to build once photos exist)
 
-1. `photos/raw/` → deskew + crop page (OpenCV).
+1. `photos/raw/` → deskew + crop page (OpenCV); detect the circled sheet code (top right), read it, then mask it out.
 2. Line segmentation: horizontal projection profile, constrained to the 12 known lines per page (summed across split sheets). Ruled sheets need rule-line removal first. Check visually; fall back to a VLM pass for messy pages.
 3. Pair each crop with its line from `ground-truth/pages.txt` → `data/lines/*.png` + `data/labels.jsonl`.
 4. Split by page (e.g. 16 train / 2 val / 2 test pages, with both rounds of a test page held out) so test lines are never seen in training.
@@ -51,7 +51,7 @@ Python environments use `uv`.
 
 ```
 ground-truth/pages.txt   text to copy, one line per handwritten line (source of truth)
-writing-sheets.pdf       printable sheets generated from pages.txt
-scripts/                 make_writing_pdf.py
+writing-sheets.pdf       printable sheets built from pages.txt
+writing-sheets.typ       Typst source for the PDF
 photos/raw/              page photos (as received)
 ```
