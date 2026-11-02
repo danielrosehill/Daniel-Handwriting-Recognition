@@ -1,0 +1,284 @@
+# Ground truth for the handwriting collection pages.
+# Format: a "=== Pxx ===" header, then one line of text per handwritten line.
+# The page code (P01 etc.) is written in the top-right corner of the sheet and is NOT a text line.
+# Copy each line exactly: same capitals, punctuation and spacing. One printed line = one handwritten line.
+
+=== P01 ===
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789 9876543210
+The quick brown fox jumps over the lazy dog.
+Pack my box with five dozen liquor jugs.
+Sphinx of black quartz, judge my vow.
+How vexingly quick daft zebras jump!
+The five boxing wizards jump quickly.
+Jackdaws love my big sphinx of quartz.
+Waltz, bad nymph, for quick jigs vex.
+Glib jocks quiz nymph to vex dwarf.
+Quick zephyrs blow, vexing daft Jim.
+
+=== P02 ===
+aa bb cc dd ee ff gg hh ii jj kk ll mm
+nn oo pp qq rr ss tt uu vv ww xx yy zz
+Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm
+Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
+rn m cl d vv w ii u nn h ll 1l I1 0O o
+minimum illumination, running summer
+the then them there these those
+quiz jazz fizz buzz puzzle dizzy
+rhythm syzygy crypt lynx gypsy myth
+qualify quarter quorum queue quote
+which with where when what while
+through though thought tough bough
+
+=== P03 ===
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+20 30 40 50 60 70 80 90 100 1000
+3.14 2.718 0.5 99.9% 12,450 1,000,000
+02/11/2026 2026-11-02 14:35 09:05
+Monday 3 March, Friday 27 June 2025
+$45.99 NIS 120 EUR 18.50 GBP 7
++972 54 123 4567 and 03-555-0199
+Call back at 4pm, room 218, floor 6.
+Order #48213 shipped on 17/10.
+Version 2.4.1 released, build 1093.
+Q3 revenue up 12.5% to 340k.
+7 x 8 = 56, 144 / 12 = 12, 2^10 = 1024
+
+=== P04 ===
+Wait, what? Really! Yes; no: maybe.
+"Hello," she said. 'Fine,' he replied.
+It's Daniel's, not theirs (I think).
+one - two -- three ... four & five
+a/b c\d e|f [g] {h} <i> @j #k
+50% off, 3 * 4, 1 + 1 = 2, x - y
+Is it ready? Not yet. Soon, I hope!
+email: name@example.com; tag #todo
+path: ~/repos/github/notes.md
+Note: don't forget the keys!
+TODO: fix bug, test, ship.
+~ ^ _ ` $ % & * ( ) ! ? ; :
+
+=== P05 ===
+Linux, Ubuntu, KDE Plasma, Konsole
+GitHub repository, pull request, commit
+Python script with uv, not pip
+Docker container on the home server
+API key stored in Infisical
+Claude Code agent, MCP gateway, skill
+speech to text, ASR, TTS, Whisper
+fine-tune the model on my dataset
+GPU, CPU, RAM, SSD, NAS, VPN
+Home Assistant automation for lights
+Cloudflare DNS record and domain
+Tailscale network between devices
+
+=== P06 ===
+transcription accuracy and word error rate
+prompt engineering for language models
+open source plugin for the marketplace
+microphone, headset, audio interface
+backup to Google Drive every night
+deploy the static site to Vercel
+markdown, JSON, YAML, CSV, PDF
+podcast episode about AI agents
+benchmark results and evaluation
+keyboard shortcut for dictation
+handwriting recognition training run
+neural network, dataset, checkpoint
+
+=== P07 ===
+Jerusalem, Tel Aviv, Haifa, Beersheba
+Israel, Ireland, London, New York
+Daniel Rosehill
+Rachel, Ezekiel, Gwendolyn
+DSR Holdings Ltd.
+Hebrew, English, Irish, Yiddish
+Ben Gurion Airport, Terminal 3
+Jaffa Road, King George Street
+Mahane Yehuda market on Thursday
+Dublin, Cork, Galway, Limerick
+Microsoft, Google, Anthropic, Apple
+Shufersal, Rami Levy, Super-Pharm
+
+=== P08 ===
+daniel@example.co.il
+www.danielrosehill.com
+https://github.com/danielrosehill
+hello@example.org
+github.com/user/repo/issues/42
+#ai #handwriting #ocr
+@someone mentioned this on Monday
+v1.0, v2.3.1, rc-2, beta_4
+file_name_final_v2.txt
+C:\Users\Documents\notes.docx
+192.168.1.1 and port 8080
+SSH, HTTPS, URL, PDF, OCR, HTR
+
+=== P09 ===
+Shopping list for this week:
+- milk, eggs, bread, cheese
+- tomatoes, cucumbers, onions
+- olive oil, coffee, tea bags
+- washing powder and dish soap
+- batteries (AA x 8)
+- pick up the dry cleaning
+Remember to pay the electricity bill
+before the end of the month.
+Book a dentist appointment.
+Call the bank about the card.
+Return the library books.
+
+=== P10 ===
+Meeting notes, Tuesday morning
+Attendees: Daniel, Sarah, Yossi
+Agenda: budget, timeline, hiring
+Decided to move launch to January.
+Sarah will send the draft by Friday.
+Yossi to check the supplier quotes.
+Open question: who owns the docs?
+Next meeting in two weeks.
+Action items are in the tracker.
+Risk: the vendor may be late again.
+Follow up with legal on the contract.
+Summary sent to the whole team.
+
+=== P11 ===
+It was a quiet evening in the city.
+The lights came on one by one along
+the street, and somewhere a dog barked
+at nothing in particular. I sat by the
+window with a cup of tea and a notebook,
+trying to remember what I had meant to
+write down earlier in the day. Ideas
+come quickly and leave just as fast,
+which is why I carry a pen everywhere.
+Most of them are not very good, but
+every so often one of them is worth
+keeping, and that makes it all worth it.
+
+=== P12 ===
+The weather changed suddenly on Sunday.
+By noon the sky was dark grey and the
+wind had picked up from the west. We
+closed the shutters and waited. The rain
+arrived in heavy bursts, then stopped,
+then started again, as if it could not
+quite decide what it wanted to do.
+In the morning everything smelled clean
+and the streets were full of puddles.
+Children jumped in them on the way to
+school while their parents shouted at
+them to keep their shoes dry.
+
+=== P13 ===
+Ideas for the next project:
+1. A tool that turns voice notes into tasks
+2. A better way to search old emails
+3. Automatic tagging for photos
+4. A dashboard for household spending
+5. Summaries of long documents
+Which one is the most useful?
+Probably the first, because I record
+voice notes all day and rarely listen
+to them again. If they became tasks
+automatically, nothing would get lost.
+Start small and test it for a week.
+
+=== P14 ===
+Dear Michael,
+Thank you for your message yesterday.
+I have looked at the proposal and I
+think it is a good start, but there are
+a few points we should discuss before
+moving ahead. Could we find a time next
+week to talk it through? Tuesday or
+Wednesday afternoon would suit me best.
+I will send over my comments in writing
+beforehand so you can have a look.
+Best regards,
+Daniel
+
+=== P15 ===
+Good handwriting takes patience, and
+mine has never been especially neat.
+At school the teachers complained that
+my letters leaned in every direction.
+These days I mostly type, so when I do
+pick up a pen my hand gets tired after
+a page or two. Still, there is something
+about writing on paper that helps me
+think more clearly. The slowness forces
+me to choose words more carefully, and
+crossing things out leaves a record of
+how the idea changed along the way.
+
+=== P16 ===
+Recipe: simple lentil soup
+1 cup red lentils, rinsed
+1 onion, 2 carrots, 2 cloves garlic
+1 tsp cumin, 1/2 tsp turmeric, salt
+1.5 litres of water or stock
+Fry the onion until soft, about 5 min.
+Add carrots, garlic and the spices.
+Stir in the lentils and the water.
+Simmer for 25 minutes, then blend.
+Squeeze in half a lemon at the end.
+Serves four. Keeps for three days.
+Freeze the rest in small portions.
+
+=== P17 ===
+Travel plan for the trip in spring:
+Fly out early Thursday, 06:40 flight.
+Check in online the night before.
+Pack: passport, chargers, adapter,
+laptop, headphones, a warm jacket.
+Hotel is near the central station,
+about ten minutes on foot.
+Friday: museums and the old town.
+Saturday: day trip to the coast.
+Sunday: lunch with friends, then back.
+Budget roughly 400 per day for two.
+Don't forget travel insurance!
+
+=== P18 ===
+Questions to think about this year:
+What do I want to spend less time on?
+Which projects actually matter to me?
+Who should I be talking to more often?
+What would I do with one free day a week?
+Am I learning anything new each month?
+What habits are worth keeping, and
+which ones should I quietly drop?
+Where does my money really go?
+How can I make mornings less rushed?
+What would make next year easier?
+Write the answers down and revisit.
+
+=== P19 ===
+ALL CAPITALS IS HARDER TO READ
+Mixed Case Like A Title Here
+NASA, BBC, UN, EU, USA, UK, IDF
+e.g. i.e. etc. vs. approx. min. max.
+Mr. Mrs. Dr. St. Rd. Ave. Ltd. Inc.
+Jan Feb Mar Apr May Jun Jul Aug
+Sep Oct Nov Dec Mon Tue Wed Thu
+OK, FYI, ASAP, TBD, N/A, ETA, RSVP
+iPhone, YouTube, LinkedIn, WhatsApp
+PhD, MSc, BA, CEO, CTO, HR, IT
+AM PM km kg cm mm ml GB MB TB
+Fri Sat Sun - IMPORTANT - Urgent
+
+=== P20 ===
+quickly jumped over seventy fences
+amazing jazz bands excite everyone
+exquisite opaque quartz jewellery
+whizzing frogs vexed the zookeeper
+my grandmother knitted woolly gloves
+brightly coloured boxes of fizzy pop
+heavy wax candles flickered at night
+the vivid yellow kayak zigzagged by
+judges quietly weighed their verdict
+seven blue jays flew past the window
+half of the photographs were blurry
+and that is the end of the last page.
